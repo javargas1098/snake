@@ -22,7 +22,6 @@ import javax.swing.JPanel;
 public class SnakeApp {
 
     private static SnakeApp app;
-    private  Snake game;
     public static final int MAX_THREADS = 8;
     Snake[] snakes = new Snake[MAX_THREADS];
     private static final Cell[] spawn = {
@@ -51,19 +50,21 @@ public class SnakeApp {
                 GridSize.GRID_HEIGHT * GridSize.HEIGH_BOX + 40);
         frame.setLocation(dimension.width / 2 - frame.getWidth() / 2,
                 dimension.height / 2 - frame.getHeight() / 2);
-        board = new Board();
-        
-        
+        board = new Board();     
         frame.add(board,BorderLayout.CENTER);
         
         JPanel actionsBPabel=new JPanel();
         actionsBPabel.setLayout(new FlowLayout());
         JButton btn1;
-		actionsBPabel.add(btn1=new JButton("Action "));
+		actionsBPabel.add(btn1=new JButton("pausa "));
 		btn1.addActionListener(new ActionListener(){
 			   public void actionPerformed(ActionEvent e){
 			        System.out.println("holaaaaaaaaaa");
-			        game.pausa();
+			        for (Snake snake : snakes) {
+						snake.pausa();
+						
+					}
+			       
 			   }
 			});
         
