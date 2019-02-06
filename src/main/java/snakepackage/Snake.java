@@ -28,7 +28,7 @@ public class Snake extends Observable implements Runnable, KeyListener {
 	private boolean isSelected = false;
 	private int growing = 0;
 	public boolean goal = false;
-	private volatile boolean isPaused = false;
+	private volatile Boolean isPaused = false;
 
 	public Snake(int idt, Cell head, int direction) {
 		this.idt = idt;
@@ -70,9 +70,9 @@ public class Snake extends Observable implements Runnable, KeyListener {
 
 			try {
 				if (hasTurbo == true) {
-					Thread.sleep(500 / 3);
+					Thread.sleep(100 / 3);
 				} else {
-					Thread.sleep(500);
+					Thread.sleep(100);
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -86,17 +86,18 @@ public class Snake extends Observable implements Runnable, KeyListener {
 
 	public void pausa() {
 
-		if (isPaused==false) {
-			System.out.println("asdasd");
+		if (isPaused == false) {
 			isPaused = true;
-		} else {
-			resumeGame();
 		}
 	}
 
 	public synchronized void resumeGame() {
-		isPaused = false;
-		notifyAll();
+		if (isPaused == true) {
+			isPaused = false;
+				notifyAll();
+			
+			
+		}
 	}
 
 	private void snakeCalc() {
@@ -366,7 +367,7 @@ public class Snake extends Observable implements Runnable, KeyListener {
 
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
