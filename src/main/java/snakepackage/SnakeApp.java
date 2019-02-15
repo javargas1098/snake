@@ -40,7 +40,8 @@ public class SnakeApp {
 	int nr_selected = 0;
 
 	Thread[] thread = new Thread[MAX_THREADS];
-
+	
+	//fragmento de codigo realziado por javierVargas y SebastianGoenaga
 	public SnakeApp() {
 		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 		frame = new JFrame("The Snake Race");
@@ -57,7 +58,7 @@ public class SnakeApp {
 		JButton btn1;
 		JButton btn2;
 		JButton btn3;
-		actionsBPabel.add(btn3 = new JButton("star "));
+		actionsBPabel.add(btn3 = new JButton("start "));
 		btn3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i != MAX_THREADS; i++) {
@@ -91,7 +92,7 @@ public class SnakeApp {
 				}
 				JFrame aviso = new JFrame();
 				JPanel panel1 = new JPanel();
-				JLabel label = new JLabel("La mas grande es " + idsnake + " con tamaño de " + maxsnake);
+				JLabel label = new JLabel("La mas grande es " + idsnake + " con tamaÃ±o de " + maxsnake);
 				JLabel label2;
 				if (idDeadSnake != -1) {
 					label2 = new JLabel("La primera que murio fue: " + idDeadSnake);
